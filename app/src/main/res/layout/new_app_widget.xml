@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/widget_margin"
+                android:background="@android:color/transparent">
+
+
+    <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            style="@style/AppWidgetText"/>
+    <TextView
+            android:id="@+id/txtCityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDate"
+            style="@style/AppWidgetText"/>
+
+    <TextView
+            android:id="@+id/txtWeatherInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtCityName"
+            style="@style/AppWidgetText"/>
+
+    <TextView
+            android:id="@+id/txtTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_toEndOf="@+id/imgWeatherIcon"
+            android:layout_below="@id/txtWeatherInfo"
+            style="@style/AppWidgetText"
+            android:layout_alignTop="@id/imgWeatherIcon"
+            android:layout_alignBottom="@id/imgWeatherIcon"/>
+
+    <ImageView android:id="@+id/button_update"
+               android:layout_width="15dp"
+               android:layout_height="15dp"
+               android:src="@android:drawable/stat_notify_sync_noanim"
+               android:layout_alignParentTop="true"
+               android:layout_toEndOf="@+id/txtDate"
+               android:layout_marginStart="5dp"
+               android:layout_above="@+id/txtCityName"/>
+
+    <ImageView android:id="@+id/imgWeatherIcon"
+               android:layout_width="45dp"
+               android:layout_height="45dp"
+               android:layout_alignParentStart="true"
+               android:layout_below="@id/txtWeatherInfo"/>
+</RelativeLayout>

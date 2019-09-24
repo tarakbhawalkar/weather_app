@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="forecastData" type="com.weather.mausamkikhabar.data.model.ForecastData"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4"
+                android:gravity="center"/>
+
+        <ImageView
+                android:id="@+id/imgWeather"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toEndOf="@id/txtDate"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".25"
+                android:gravity="center"/>
+
+        <TextView
+                android:id="@+id/txtMaxTemp"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toEndOf="@id/imgWeather"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".175"
+                android:gravity="center"/>
+        <TextView
+                android:id="@+id/txtMinTemp"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toEndOf="@id/txtMaxTemp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".175"
+                android:gravity="center"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

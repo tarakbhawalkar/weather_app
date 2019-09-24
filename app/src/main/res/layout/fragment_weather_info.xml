@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+        <variable name="forecast" type="com.weather.mausamkikhabar.data.model.ForecastInfo"/>
+    </data>
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:background="@color/colorBackground">
+
+            <android.support.constraint.Guideline
+                    android:id="@+id/guide40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".35"/>
+
+            <View android:layout_width="0dp"
+                  android:layout_height="0dp"
+                  android:background="@color/colorPrimary"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintBottom_toBottomOf="@id/guide40"/>
+
+            <android.support.constraint.Guideline
+                    android:id="@+id/guide8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".03"/>
+
+
+            <TextView
+                    android:id="@+id/txtCityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/guide8"/>
+
+            <TextView
+                    android:id="@+id/txtWeatherDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtCityName"/>
+
+            <ImageView
+                    android:id="@+id/imgWeather"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWeatherDate"
+                    app:layout_constraintBottom_toTopOf="@id/txtTemp"/>
+
+            <TextView
+                    android:id="@+id/txtTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="46sp"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintTop_toBottomOf="@id/imgWeather"/>
+
+
+            <TextView
+                    android:id="@+id/txtMaxTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".175"
+                    app:layout_constraintEnd_toStartOf="@+id/txtMinTemp"
+                    app:layout_constraintBottom_toBottomOf="@id/guide40"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTemp" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:id="@+id/txtMinTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".175"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/guide40"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTemp" app:layout_constraintVertical_bias="1.0"/>
+
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerForecastData"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guide40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:listitem="@layout/item_forecast_data" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutBottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                app:layout_behavior="@string/bottom_sheet_behavior"
+                android:background="@color/colorBackground">
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerForecast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chart"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerForecast"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"/>
+
+            <ImageView
+                    android:id="@+id/imgWindDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_wind_direction"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center"/>
+
+            <TextView
+                    android:id="@+id/txtWindDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgWindDirection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
